@@ -4,11 +4,11 @@ This is a project I build to practice working with React Router DOM.
 
 ### Components
 
-[ ] Header/main nav
-[ ] List of PokeCards + pagination
-[ ] Individual PokeCard
-[ ] Page to display single card
-[ ] Footer
+[ ] Header/main nav <br />
+[ ] List of PokeCards + pagination <br />
+[ ] Individual PokeCard <br />
+[ ] Page to display single card <br />
+[ ] Footer <br />
 
 ### Overall Data flow
 
