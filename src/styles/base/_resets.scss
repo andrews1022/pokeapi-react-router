@@ -82,3 +82,10 @@ video {
 	max-width: 100%;
 	zoom: 1;
 }
+
+.app {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+}

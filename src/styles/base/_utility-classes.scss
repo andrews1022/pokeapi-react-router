@@ -4,9 +4,7 @@
 // As an example, generate some easy to use color based classes with this (update with your colors):
 $colors: (
 	white: $white,
-	black: $black,
-	scarlet: $scarlet,
-	deep-sky-blue: $deepSkyBlue
+	black: $black
 );
 
 @each $name, $color in $colors {

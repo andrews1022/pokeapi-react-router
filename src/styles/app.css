@@ -1,3 +1,19 @@
+.pokemon {
+  padding: 0 10%;
+}
+
+@media only screen and (max-width: 1440px) {
+  .pokemon {
+    padding: 0 7%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .pokemon {
+    padding: 0 5%;
+  }
+}
+
 html {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -83,6 +99,13 @@ video {
   zoom: 1;
 }
 
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .text-white {
   color: #fff;
 }
@@ -107,27 +130,65 @@ video {
   border-color: #000;
 }
 
-.text-scarlet {
-  color: #ea2b00;
+.card {
+  border: 2px solid #1b1b1b;
+  border-radius: 0.5rem;
+  flex: 0 1 17.5%;
+  margin: 0.75% 0;
+  padding-bottom: 1%;
+  text-align: center;
 }
 
-.background-scarlet {
-  background-color: #ea2b00;
+.card__sprite-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.border-scarlet {
-  border-color: #ea2b00;
+.card__heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 6%;
 }
 
-.text-deep-sky-blue {
-  color: #00aded;
+.card__button {
+  background-color: #2e388d;
+  color: #e4e4e4;
+  padding: 1.5% 15%;
+  transition: all 175ms ease-in-out;
 }
 
-.background-deep-sky-blue {
-  background-color: #00aded;
+@media (hover) {
+  .card__button:hover, .card__button:active, .card__button:focus {
+    background-color: #3b47b3;
+  }
 }
 
-.border-deep-sky-blue {
-  border-color: #00aded;
+.footer {
+  background-color: #9d2f2f;
+  color: #e4e4e4;
+  padding: 0.75% 0;
+  text-align: center;
+  width: 100%;
+}
+
+.header {
+  background-color: #1b1b1b;
+  color: #e4e4e4;
+  font-size: 2rem;
+  padding: 1.125% 0;
+  text-align: center;
+  width: 100%;
+}
+
+.pokemon {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.pokemon__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 /*# sourceMappingURL=app.css.map */

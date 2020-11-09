@@ -5,19 +5,6 @@
 	width: $width;
 }
 
-@mixin background-image($height, $bg-pos-x, $bg-pos-y, $bg-size, $bg-repeat: no-repeat) {
-	height: $height;
-	background-position: $bg-pos-x $bg-pos-y;
-	background-repeat: $bg-repeat;
-	background-size: $bg-size;
-}
-
-@mixin pseudo($content: '', $pos: absolute, $display: block) {
-	content: $content;
-	position: $pos;
-	display: $display;
-}
-
 @mixin flex($align-items, $justify-content) {
 	display: flex;
 	align-items: $align-items;

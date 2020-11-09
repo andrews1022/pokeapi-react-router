@@ -1,0 +1,11 @@
+.pokemon {
+	@extend %section-padding;
+	margin-top: auto;
+	margin-bottom: auto;
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}

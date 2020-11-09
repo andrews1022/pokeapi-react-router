@@ -4,16 +4,17 @@ This is a project I build to practice working with React Router DOM.
 
 ### Components
 
-[ ] Header/main nav <br />
+[x] Header/main nav <br />
+[x] Footer <br />
 [ ] List of PokeCards + pagination <br />
 [ ] Individual PokeCard <br />
 [ ] Page to display single card <br />
-[ ] Footer <br />
 
 ### Overall Data flow
 
-- Have header and footer on all pages
+[x] Have header and footer on all pages <br />
+[x] Fetch data from API, then create PokemonCard component for each (PokemonList.js & PokemonCard.js) <br />
+[x] Include Link to view that specific Pokemon in more detail (PokemonCard.js)
+
 - On home page, display list of Pokemon Cards with pagination buttons (PokemonList.js)
-- Fetch data from API, then create PokemonCard component for each (PokemonList.js & PokemonCard.js)
 - Handle state of next/previous buttons (PokemonList.js)
-- Include Link to view that specific Pokemon in more detail (PokemonCard.js)
