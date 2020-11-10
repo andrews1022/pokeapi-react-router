@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { capitalizeName } from './../utility/functions';
+import Loading from './Loading';
 
 const PokemonCard = ({ pokemon }) => {
 	const [frontSprite, setFrontSprite] = useState('');
@@ -8,17 +9,25 @@ const PokemonCard = ({ pokemon }) => {
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
+		const abortController = new AbortController();
+
+		const getSprites = async () => {
+			try {
+				const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
+				const data = await response.json();
+
+				setFrontSprite(data.sprites.front_default);
+				setBackSprite(data.sprites.back_default);
+				setIsLoaded(true);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
 		getSprites();
-	});
 
-	const getSprites = async () => {
-		const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
-		const data = await response.json();
-
-		setFrontSprite(data.sprites.front_default);
-		setBackSprite(data.sprites.back_default);
-		setIsLoaded(true);
-	};
+		return () => abortController.abort();
+	}, [pokemon.name]);
 
 	if (isLoaded) {
 		return (
@@ -42,7 +51,11 @@ const PokemonCard = ({ pokemon }) => {
 			</li>
 		);
 	} else {
-		return <p>Loading...</p>;
+		return (
+			<li className='card'>
+				<Loading />
+			</li>
+		);
 	}
 };
 

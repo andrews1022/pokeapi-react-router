@@ -2,10 +2,11 @@
 	@extend %section-padding;
 	margin-top: auto;
 	margin-bottom: auto;
+	position: relative;
 
 	&__list {
 		display: flex;
-		justify-content: space-between;
 		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 }

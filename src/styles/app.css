@@ -172,23 +172,71 @@ video {
   width: 100%;
 }
 
+.footer__icon-row {
+  margin-top: 0.5%;
+}
+
+.footer__icon {
+  font-size: 1.5rem;
+  margin: 0 0.5%;
+  transition: all 175ms ease-in-out;
+}
+
+@media (hover) {
+  .footer__icon:hover, .footer__icon:active, .footer__icon:focus {
+    opacity: 0.8;
+  }
+}
+
 .header {
   background-color: #1b1b1b;
   color: #e4e4e4;
   font-size: 2rem;
+  font-weight: 700;
   padding: 1.125% 0;
   text-align: center;
   width: 100%;
 }
 
+.loading {
+  font-size: 2.5rem;
+  padding: 2% 0;
+}
+
+.pagination__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ddd;
+  font-size: 3rem;
+  transition: all 175ms ease-in-out;
+}
+
+@media (hover) {
+  .pagination__icon:hover {
+    color: #c4c4c4;
+    cursor: pointer;
+    top: 49.5%;
+  }
+}
+
+.pagination__icon--left {
+  left: 5%;
+}
+
+.pagination__icon--right {
+  right: 5%;
+}
+
 .pokemon {
   margin-top: auto;
   margin-bottom: auto;
+  position: relative;
 }
 
 .pokemon__list {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 /*# sourceMappingURL=app.css.map */

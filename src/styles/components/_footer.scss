@@ -4,4 +4,25 @@
 	padding: 0.75% 0;
 	text-align: center;
 	width: 100%;
+
+	&__text {
+	}
+
+	&__icon-row {
+		margin-top: 0.5%;
+	}
+
+	&__icon {
+		font-size: 1.5rem;
+		margin: 0 0.5%;
+		transition: $transitionSmoothShort;
+
+		@media (hover) {
+			&:hover,
+			&:active,
+			&:focus {
+				opacity: 0.8;
+			}
+		}
+	}
 }

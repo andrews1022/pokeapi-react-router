@@ -1,21 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import PokemonCard from './PokemonCard';
+import Loading from './Loading';
+import PaginationButton from './PaginationButton';
 
 const PokemonList = () => {
+	// state variables
 	const [pokemon, setPokemon] = useState([]);
 	const [isLoaded, setIsLoaded] = useState(false);
+	const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon');
+	const [nextPageUrl, setNextPageUrl] = useState('');
+	const [prevPageUrl, setPrevPageUrl] = useState('');
 
+	// make initial request - get first 20 pokemon
 	useEffect(() => {
+		// AbortController allows us to cancel fetch requests
+		// this is an alternative to using axios with its built in cancel functionality
+		const abortController = new AbortController();
+
+		setIsLoaded(false);
+
+		const getPokemon = async () => {
+			try {
+				const response = await fetch(currentPageUrl);
+				const data = await response.json();
+
+				// set various state values
+				setNextPageUrl(data.next);
+				setPrevPageUrl(data.previous);
+				setPokemon(data.results);
+				setIsLoaded(true);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		// run the above function each time
 		getPokemon();
-	}, []);
 
-	const getPokemon = async () => {
-		const response = await fetch('https://pokeapi.co/api/v2/pokemon');
-		const pokemon = await response.json();
+		// cleanup - prevent race conditions (cancel previous request each time we make a new one)
+		return () => abortController.abort();
+	}, [currentPageUrl]);
 
-		setIsLoaded(true);
-		setPokemon(pokemon.results);
-	};
+	// handle going to next and previous pages
+	const gotoNextPage = () => setCurrentPageUrl(nextPageUrl);
+	const gotoPrevPage = () => setCurrentPageUrl(prevPageUrl);
 
 	if (isLoaded) {
 		return (
@@ -25,10 +53,16 @@ const PokemonList = () => {
 						<PokemonCard key={poke.name} pokemon={poke} />
 					))}
 				</ul>
+				{prevPageUrl && (
+					<PaginationButton direction='left' pageChange={prevPageUrl ? gotoPrevPage : null} />
+				)}
+				{nextPageUrl && (
+					<PaginationButton direction='right' pageChange={nextPageUrl ? gotoNextPage : null} />
+				)}
 			</div>
 		);
 	} else {
-		return <p>Loading...</p>;
+		return <Loading />;
 	}
 };
 

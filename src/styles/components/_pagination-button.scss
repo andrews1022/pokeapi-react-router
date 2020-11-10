@@ -1,0 +1,24 @@
+.pagination__icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #ddd;
+	font-size: 3rem;
+	transition: $transitionSmoothShort;
+
+	@media (hover) {
+		&:hover {
+			color: darken(#ddd, 10%);
+			cursor: pointer;
+			top: 49.5%;
+		}
+	}
+
+	&--left {
+		left: 5%;
+	}
+
+	&--right {
+		right: 5%;
+	}
+}

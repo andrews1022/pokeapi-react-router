@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => {
-	const gitHubLink = 'https://github.com/andrews1022/string-formatter-react';
+	const gitHubLink = 'https://github.com/andrews1022/pokeapi-react-router';
 	const twitterLink = 'https://twitter.com/andrew_devsrc';
 
 	return (
