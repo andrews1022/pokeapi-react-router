@@ -1,22 +1,34 @@
-// Utility classes are great for quick and easy styling
-// Check out Tailwind CSS, a very popular utility class first CSS framework: https://tailwindcss.com/
-
-// As an example, generate some easy to use color based classes with this (update with your colors):
-$colors: (
-	white: $white,
-	black: $black
+$types: (
+	bug: $typeBug,
+	dark: $typeDark,
+	dragon: $typeDragon,
+	electric: $typeElectric,
+	fairy: $typeFairy,
+	fighting: $typeFighting,
+	fire: $typeFire,
+	flying: $typeFlying,
+	ghost: $typeGhost,
+	grass: $typeGrass,
+	ground: $typeGround,
+	ice: $typeIce,
+	normal: $typeNormal,
+	poison: $typePoison,
+	psychic: $typePsychic,
+	rock: $typeRock,
+	steel: $typeSteel,
+	water: $typeWater
 );
 
-@each $name, $color in $colors {
-	.text-#{$name} {
+@each $type, $color in $types {
+	.text-#{$type} {
 		color: $color;
 	}
 
-	.background-#{$name} {
+	.background-#{$type} {
 		background-color: $color;
 	}
 
-	.border-#{$name} {
+	.border-#{$type} {
 		border-color: $color;
 	}
 }

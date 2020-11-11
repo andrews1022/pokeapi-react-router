@@ -6,11 +6,30 @@ $white: #fff;
 $black: #000;
 
 // COLORS
-// It's best to use more meaningful variable names, such as:
 $milanoRed: #9d2f2f;
 $funBlue: #2e388d;
 $gainsboro: #e4e4e4;
 $nero: #1b1b1b;
+
+// TYPES
+$typeBug: #adbd21;
+$typeDark: #735a4a;
+$typeDragon: #7b63e7;
+$typeElectric: #ffc631;
+$typeFairy: #f7b5f7;
+$typeFighting: #a55239;
+$typeFire: #f75231;
+$typeFlying: #9cadf7;
+$typeGhost: #6363b5;
+$typeGrass: #7bce52;
+$typeGround: #d6b55a;
+$typeIce: #5acee7;
+$typeNormal: #ada594;
+$typePoison: #b55aa5;
+$typePsychic: #ff73a5;
+$typeRock: #bda55a;
+$typeSteel: #adadc6;
+$typeWater: #399cff;
 
 // GENERAL/UI
 $bumperPadding: 0 1.125rem;
@@ -38,8 +57,3 @@ $mobileMedium: 'only screen and (max-width: 480px)';
 $mobileSmall: 'only screen and (max-width: 415px)';
 $mobileXSmall: 'only screen and (max-width: 375px)';
 $mobileTiny: 'only screen and (max-width: 325px)';
-
-// Use breakpoint variables with media queries by using interpolation like this:
-@media #{$laptop} {
-	// Styles go here
-}

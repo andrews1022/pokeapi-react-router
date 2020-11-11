@@ -1,7 +1,7 @@
 .pokemon {
 	@extend %section-padding;
-	margin-top: auto;
-	margin-bottom: auto;
+	margin: 2.5% 0;
+	padding-bottom: 5.5rem;
 	position: relative;
 
 	&__list {

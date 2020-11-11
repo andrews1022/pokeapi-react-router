@@ -14,7 +14,7 @@ const PokemonList = () => {
 	// make initial request - get first 20 pokemon
 	useEffect(() => {
 		// AbortController allows us to cancel fetch requests
-		// this is an alternative to using axios with its built in cancel functionality
+		// this is an alternative to using axios with its built in cancel + cancelToken functionality
 		const abortController = new AbortController();
 
 		setIsLoaded(false);
@@ -37,8 +37,14 @@ const PokemonList = () => {
 		// run the above function each time
 		getPokemon();
 
-		// cleanup - prevent race conditions (cancel previous request each time we make a new one)
-		return () => abortController.abort();
+		// we can return a function
+		// this allows for cleanup/prevent race conditions (cancel previous request each time we make a new one)
+		return () => {
+			abortController.abort();
+		};
+
+		// we pass in the currentPageUrl as argument to say that each time it changes, re-run this effect
+		// this is great for pagination, so we can fetch the next/previous 20 pokemon
 	}, [currentPageUrl]);
 
 	// handle going to next and previous pages
@@ -50,7 +56,7 @@ const PokemonList = () => {
 			<div className='pokemon'>
 				<ul className='pokemon__list'>
 					{pokemon.map((poke) => (
-						<PokemonCard key={poke.name} pokemon={poke} />
+						<PokemonCard key={poke.name} pokemon={poke} goBackUrl={currentPageUrl} />
 					))}
 				</ul>
 				{prevPageUrl && (

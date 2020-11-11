@@ -1,0 +1,30 @@
+.error {
+	@extend %absolute-center;
+	text-align: center;
+
+	&__text {
+		font-size: 2rem;
+		margin-bottom: 5%;
+	}
+
+	&__button {
+		border: 2px solid $milanoRed;
+		border-radius: 2rem;
+		color: $milanoRed;
+		display: block;
+		font-weight: 600;
+		margin: $marginCenter;
+		padding: 2% 0;
+		transition: $transitionSmoothShort;
+		width: 15rem;
+
+		@media (hover) {
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $milanoRed;
+				color: $white;
+			}
+		}
+	}
+}

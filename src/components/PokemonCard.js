@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PokemonSprite from './PokemonSprite';
 import { Link } from 'react-router-dom';
 import { capitalizeName } from './../utility/functions';
 import Loading from './Loading';
@@ -6,6 +7,8 @@ import Loading from './Loading';
 const PokemonCard = ({ pokemon }) => {
 	const [frontSprite, setFrontSprite] = useState('');
 	const [backSprite, setBackSprite] = useState('');
+	const [pokemonName, setPokemonName] = useState('');
+	const [pokedexNum, setPokedexNum] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
@@ -18,6 +21,8 @@ const PokemonCard = ({ pokemon }) => {
 
 				setFrontSprite(data.sprites.front_default);
 				setBackSprite(data.sprites.back_default);
+				setPokedexNum(data.id);
+				setPokemonName(pokemon.name);
 				setIsLoaded(true);
 			} catch (error) {
 				console.log(error);
@@ -26,26 +31,32 @@ const PokemonCard = ({ pokemon }) => {
 
 		getSprites();
 
-		return () => abortController.abort();
+		return () => {
+			abortController.abort();
+		};
 	}, [pokemon.name]);
 
 	if (isLoaded) {
 		return (
 			<li className='card'>
 				<div className='card__sprite-row'>
-					<img
-						className='card__sprite'
-						src={frontSprite}
-						alt={`front facing sprite for ${pokemon.name}`}
+					<PokemonSprite
+						source={frontSprite}
+						direction='front'
+						version='default'
+						name={pokemonName}
 					/>
-					<img
-						className='card__sprite'
-						src={backSprite}
-						alt={`back facing sprite for ${pokemon.name}`}
+					<PokemonSprite
+						source={backSprite}
+						direction='back'
+						version='default'
+						name={pokemonName}
 					/>
 				</div>
-				<h2 className='card__heading'>{capitalizeName(pokemon.name)}</h2>
-				<Link className='card__button' to={`/pokemon/${pokemon.name}`}>
+				<h2 className='card__heading'>
+					#{pokedexNum}: {capitalizeName(pokemonName)}
+				</h2>
+				<Link className='card__button' to={`/pokemon/${pokemonName}`}>
 					View Details
 				</Link>
 			</li>

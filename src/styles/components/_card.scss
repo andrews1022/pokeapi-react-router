@@ -1,8 +1,9 @@
 .card {
-	border: 2px solid $nero;
+	border: 2px solid $gainsboro;
 	border-radius: 0.5rem;
+	box-shadow: $subtleBoxShadow;
 	flex: 0 1 17.5%;
-	margin: 0.75% 0;
+	margin: 1% 0.5%;
 	padding-bottom: 1%;
 	text-align: center;
 
@@ -10,10 +11,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		padding: 1% 0;
 	}
-
-	// &__sprite {
-	// }
 
 	&__heading {
 		font-size: 1.5rem;
@@ -22,16 +21,22 @@
 	}
 
 	&__button {
-		background-color: $funBlue;
-		color: $gainsboro;
-		padding: 1.5% 15%;
+		border: 2px solid $funBlue;
+		border-radius: 2rem;
+		color: $funBlue;
+		display: block;
+		font-weight: 600;
+		margin: $marginCenter;
+		padding: 1.5% 0;
 		transition: $transitionSmoothShort;
+		width: 66%;
 
 		@media (hover) {
 			&:hover,
 			&:active,
 			&:focus {
-				background-color: lighten($funBlue, 10%);
+				background-color: $funBlue;
+				color: $gainsboro;
 			}
 		}
 	}

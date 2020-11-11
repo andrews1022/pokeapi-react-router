@@ -1,0 +1,110 @@
+.details {
+	margin: 1.5% 0 2.5% 0;
+	width: 97%;
+
+	&__button {
+		border: 2px solid $funBlue;
+		border-radius: 2rem;
+		color: $funBlue;
+		display: inline-block;
+		font-size: 1.125rem;
+		font-weight: 600;
+		padding: 0.5% 2% 0.5% 0;
+		width: 10vw;
+		margin-left: -4%;
+		text-align: right;
+		transition: $transitionSmoothShort;
+
+		@media (hover) {
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $funBlue;
+				color: $gainsboro;
+
+				.details__button-icon {
+					opacity: 1;
+				}
+
+				.details__button-text {
+					transform: translateX(0);
+				}
+			}
+		}
+	}
+
+	&__button-icon {
+		margin-right: 5%;
+		opacity: 0;
+		transition: $transitionSmoothShort;
+	}
+
+	&__button-text {
+		display: inline-block;
+		transform: translateX(-8%);
+		transition: $transitionSmoothShort;
+	}
+
+	&__wrapper {
+		@extend %section-padding;
+		margin-top: 2%;
+	}
+
+	&__heading {
+		color: $nero;
+		font-size: 5.5rem;
+		font-weight: 300;
+		text-align: center;
+	}
+
+	&__sprite-wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		margin: 2% 0;
+	}
+
+	&__sprite-row {
+		display: flex;
+		align-items: center;
+	}
+
+	&__info {
+		text-align: center;
+	}
+
+	&__types {
+	}
+
+	&__types-heading {
+		color: $nero;
+		font-size: 1.375rem;
+		margin-bottom: 0.5%;
+		text-transform: uppercase;
+	}
+
+	&__types-wrapper {
+		margin-bottom: 2%;
+	}
+
+	&__types-type {
+		font-size: 1.625rem;
+		font-weight: 800;
+		margin: 0 0.33%;
+		text-transform: uppercase;
+	}
+
+	&__description {
+		color: $nero;
+	}
+
+	&__description-heading {
+		font-size: 1.375rem;
+		margin-bottom: 0.5%;
+		text-transform: uppercase;
+	}
+
+	&__description-copy {
+		font-size: 1.125rem;
+	}
+}
