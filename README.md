@@ -9,7 +9,7 @@ This is a project I build to practice working with React Router DOM.
 [x] List of PokeCards + pagination <br />
 [x] Individual PokeCard <br />
 [x] Page to display details of clicked PokeCard <br />
-[ ] Error/404 page <br />
+[x] Error/404 page <br />
 
 ### Overall data flow
 
